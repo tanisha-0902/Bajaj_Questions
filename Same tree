@@ -1,0 +1,19 @@
+class Solution {
+    public boolean isSameTree(TreeNode p, TreeNode q) {
+        ArrayList<Integer> arr1=new ArrayList<>();
+        ArrayList<Integer> arr2=new ArrayList<>();
+        traversal(p,arr1);
+        traversal(q,arr2);
+        return arr1.equals(arr2);
+    }
+    public void traversal(TreeNode root,ArrayList<Integer> arr){
+        if(root==null){
+            arr.add(null);
+            return;
+        }
+        //preorder traversal N-L-R
+        arr.add(root.val);
+        traversal(root.left,arr);
+        traversal(root.right,arr);
+    }
+}
